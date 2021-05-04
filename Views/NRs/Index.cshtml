@@ -1,0 +1,26 @@
+﻿@model IEnumerable<CasaNR.Models.NR>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Consultation de la carte</h2>
+
+
+
+<p>
+    <a href="~/NRs/EditFeature">Demande d'une note de renseignement</a>
+
+</p>
+<iframe id="carteFrame" src="@Url.Action("carteNR")"></iframe>
+
+
+<p>
+    Le but de cette initiative est de faire usage de la nouvelle technologie, afin de garantir le droit d’accès large et facile à l’information urbanistique.
+
+    Ce service permet l’édition automatique et gratuite de la note de renseignements. L’Agence Urbaine de Casablanca délivre à toute personne qui en fait la demande, une note de renseignements urbanistiques dite « indicative », précisant l’utilisation qui peut être faite d’une propriété foncière en application des documents d’urbanisme en vigueur, en plus de la possibilité offerte au pétitionnaire de se voir délivrer une « Note de Renseignements » officielle, portant une signature électronique.
+
+    E-Auc se veut une plateforme e-services globale offrant d’innovants services de dématérialisation et automatisation des processus métier et couvrant l’ensemble des activités de planification et gestion urbaine de l’agence.
+
+    Ces efforts ont été couronnés par le prix d’encouragement dans la catégorie « E-démarche » qui a été décerné à l’Agence Urbaine de Casablanca par le Ministère de la Fonction Publique et de la Modernisation de l’Administration à l’occasion des trophées de la dixième édition du Prix National de l’Administration Electronique « Emtiaz 2016 ».
+</p>

@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "ChartNR";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/chart/exporting.js"></script>
+<script src="~/chart/highcharts.js"></script>
+
+<div class="jumbotron">
+    <div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+</div>
+
+<script>
+
+
+    $(document).ready(function () {
+        $.getJSON("/NRs1/Stat", function (data) {
+
+
+
+            Highcharts.chart('container', {
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false,
+                    type: 'pie'
+                },
+                title: {
+                    text: 'Les états des notes de renseignements'
+                },
+                tooltip: {
+                    pointFormat: '{series.name}: <b>{point.y}</b>'
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: true,
+                            format: '<b>{point.name}</b>: {point.y} ',
+                            style: {
+                                color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                            }
+                        }
+                    }
+                },
+                series: [{
+                    name: 'Etat',
+                    colorByPoint: true,
+                    data: [{
+                        name: 'Delivré',
+                        y: data.Delivre
+                    }, {
+                        name: 'Non traité',
+                            y: data.NonTraite
+                    }, {
+                        name: 'En cours de traitement',
+                            y: data.EnCours
+                    }]
+                }]
+            });
+        });
+    });
+
+</script>

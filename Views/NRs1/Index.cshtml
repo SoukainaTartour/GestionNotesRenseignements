@@ -1,0 +1,119 @@
+﻿@model IEnumerable<CasaNR.Models.NR>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+
+    <a href="~/NRs1/ChartNR">Voir Les statistiques</a>
+</p>
+
+<form asp-controller="NRs1" asp-action="Index" method="get">
+    <p>
+
+        <strong style="color:darkred">Etat:  </strong>  <input type="text" name="etat" />
+        <strong style="color:darkred">L'ID de la note: </strong>  <input type="text" name="IdNR" />
+        <input type="submit" value="Rechercher" class="btn btn-success" />
+
+    </p>
+</form>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Reference_)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prenom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Societe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Qualite)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nature_ter)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Zonage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.indice_Equ)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Voirie)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Autres)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NR_Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Etat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SHAPE_STAr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SHAPE_STLe)
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Reference_)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Prenom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Societe)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Qualite)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nature_ter)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Zonage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.indice_Equ)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Voirie)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Autres)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NR_Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Etat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SHAPE_STAr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SHAPE_STLe)
+        </td>
+       
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.OBJECTID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.OBJECTID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.OBJECTID })
+        </td>
+    </tr>
+}
+
+</table>
